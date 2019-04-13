@@ -1,0 +1,13 @@
+{
+  "lang": "ru",
+  "ignoreUrls": true,
+  "excludeFiles": [
+    "./articles/bmsdave-auth-vulnerabilities",
+    "./articles/melikhov-3-tips-about-javascript",
+    "./articles/melikhov-create-devschacht-app-part-1",
+    "./articles/melikhov-create-devschacht-app-part-2",
+    "./articles/melikhov-speeding-up-loading-in-the-era-of-smartphones",
+    "./articles/phantomjs-is-over",
+    "./articles/the-vignelli-canon"
+  ]
+}
