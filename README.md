@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/devSchacht/articles.svg?branch=master)](https://travis-ci.org/devSchacht/articles)
+
 # Статьи
 
 1. [devSchacht](./articles/the-vignelli-canon)
