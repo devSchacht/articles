@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "yaspeller ./articles -e '.md'",
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.md": "yaspeller"
+  },
+  "dependencies": {
+    "lint-staged": "^8.1.5",
+    "pre-commit": "^1.2.2",
+    "yaspeller": "^5.0.1"
+  }
+}
