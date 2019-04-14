@@ -166,7 +166,7 @@ myObject[property].name           // "[symbolProperty]"
 
 ### Спецификация
 
-Возможно кто-то считает, что когда-то трава была зеленее, небо голубее и вода мокрее, но в мире JavaScript раньше было определенно хуже! И только начиная со стандарта [**ECMA-262 6th Edition](https://www.ecma-international.org/ecma-262/6.0/)** появилась определенность в понятии анонимной функции, в частности в главе [**14 ECMAScript Language: Functions and Classes](http://14 ECMAScript Language: Functions and Classes)**, посвященной функциям и классам, в пункте [**14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition):**
+Возможно кто-то считает, что когда-то трава была зеленее, небо голубее и вода мокрее, но в мире JavaScript раньше было определенно хуже! И только начиная со стандарта **[ECMA-262 6th Edition](https://www.ecma-international.org/ecma-262/6.0/)** появилась определенность в понятии анонимной функции, в частности в главе **[14 ECMAScript Language: Functions and Classes](https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-functions-and-classes)**, посвященной функциям и классам, в пункте **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)**:
 
 ```
 **14.1.9 Static Semantics: IsAnonymousFunctionDefinition( production )**
@@ -177,7 +177,7 @@ myObject[property].name           // "[symbolProperty]"
 4. Return true
 ```
 
-Откуда получаем, что для полного понимания придется разобраться в семантике [**IsFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-isfunctiondefinition):** 
+Откуда получаем, что для полного понимания придется разобраться в семантике **[IsFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-isfunctiondefinition)**: 
 
 ```
 **14.1 Function Definitions
@@ -190,7 +190,7 @@ myObject[property].name           // "[symbolProperty]"
       1. Return true.
 ```
 
-А также разобраться в семантике [**hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-hasname)**:
+А также разобраться в семантике **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-hasname)**:
 
 ```
 
@@ -204,7 +204,7 @@ FunctionExpression:
      1. Return true.
 ```
 
-Семантика [**hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для [**Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**:
+Семантика **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**:
 
 ```
 **14.2 Arrow Function Definitions
@@ -286,7 +286,7 @@ const myObject = {
 
 ### Стойте! А как же name?
 
-Не стоит забывать, что JavaScript мультипарадигмальный язык программирования, где есть элементы объектно-ориентированного подхода, где функцию можно рассматривать как объект со своими свойствами. К таким свойствам относится свойство **name**, и в спецификации легко обнаружить описание [**SetFunctionName](https://www.ecma-international.org/ecma-262/6.0/#sec-setfunctionname)** в [**9.2. ECMAScript Function Objects](https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-function-objects)**:
+Не стоит забывать, что JavaScript мультипарадигмальный язык программирования, где есть элементы объектно-ориентированного подхода, где функцию можно рассматривать как объект со своими свойствами. К таким свойствам относится свойство **name**, и в спецификации легко обнаружить описание **[SetFunctionName](https://www.ecma-international.org/ecma-262/6.0/#sec-setfunctionname)** в **[9.2. ECMAScript Function Objects](https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-function-objects)**:
 
 ```
 **9.2 ECMAScript Function Objects
@@ -304,7 +304,7 @@ The abstract operation SetFunctionName requires a Function argument F, a String 
   ..
 ```
 
-И собственно в описаниях классов, методов и функций используется эта абстрактная операция [**SetFunctionName](https://www.ecma-international.org/ecma-262/6.0/#sec-setfunctionname)**, которая описывает алгоритм как задается свойство **name**. Например, для функций созданных с помощью конструктора **Function**, именем функции будет "anonymous":
+И собственно в описаниях классов, методов и функций используется эта абстрактная операция **[SetFunctionName](https://www.ecma-international.org/ecma-262/6.0/#sec-setfunctionname)**, которая описывает алгоритм как задается свойство **name**. Например, для функций созданных с помощью конструктора **[Function](https://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor)**, именем функции будет "anonymous":
 
 ```
 **19.2.1.1.1 RuntimeSemantics: CreateDynamicFunction(constructor, newTarget, kind, args)**
@@ -314,7 +314,7 @@ The abstract operation SetFunctionName requires a Function argument F, a String 
   ..
 ```
 
-И лично для себя открыл в спецификации то, как задается имя для функции, привязанной к контексту с помощью метода **bind**, что описано в разделе [**19.2.3.2 Function.prototype.bind](https://www.ecma-international.org/ecma-262/6.0/#sec-function.prototype.bind)**, например:
+И лично для себя открыл в спецификации то, как задается имя для функции, привязанной к контексту с помощью метода **bind**, что описано в разделе **[19.2.3.2 Function.prototype.bind](https://www.ecma-international.org/ecma-262/6.0/#sec-function.prototype.bind)**, например:
 
 ```
 const myFunc = function() {
