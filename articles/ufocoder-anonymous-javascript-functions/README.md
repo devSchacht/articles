@@ -325,6 +325,16 @@ const myBind = myFunc.bind({ myProperty: 'value' })
 console.log(myBind.name); // "bound myFunc"
 ```
 
+Также подобные префиксы в именах имеют функции, созданные как getter-метод объекта или setter-метод объекта, согласно **[14.3.9 Runtime Semantics: PropertyDefinitionEvaluation](http://www.ecma-international.org/ecma-262/6.0/#sec-method-definitions-runtime-semantics-propertydefinitionevaluation)**, например:
+
+```
+const myObject = {
+  get myProperty() { return 42 }
+}
+console.log(
+  Object.getOwnPropertyDescriptor(myObject, "myProperty").get.name
+) // "get myProperty"
+```
 
 ### Вывод
 
