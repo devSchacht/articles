@@ -8,3 +8,5 @@
 4. [Пишем приложение DevSchacht на React Native. Часть 1.](./articles/melikhov-create-devschacht-app-part-1)
 5. [Пишем приложение DevSchacht на React Native. Часть 2.](./articles/melikhov-create-devschacht-app-part-2)
 6. [Гонка за скоростью: ускоряем загрузку сайтов в эпоху смартфонов](./articles/melikhov-speeding-up-loading-in-the-era-of-smartphones)
+7. [Анонимные функции в JavaScript](./articles/ufocoder-anonymous-javascript-functions)
+
