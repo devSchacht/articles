@@ -106,7 +106,7 @@ const obj = {
 };
 ```
 
-К тому же не стоит забывать о существовании [Generator Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_GeneratorFunction_constructor) и об специальном синтаксисе с использованием [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), плюс вспомним о [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get). Все это добавляет вариации в выше указанные способы определения функций.
+К тому же не стоит забывать о существовании [Generator Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_GeneratorFunction_constructor) и об специальном синтаксисе с использованием [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), плюс вспомним о [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get). Все это добавляет вариации в вышеуказанные способы определения функций.
 
 ![](./functions.gif)
 
@@ -203,7 +203,7 @@ FunctionExpression:
      1. Return true.
 ```
 
-Из семантика **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**, следует, что стрелочные функции всегда анонимны:
+Из семантики **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**, следует, что стрелочные функции всегда анонимны:
 
 ```
 **14.2 Arrow Function Definitions
@@ -325,7 +325,7 @@ console.log(
 
 На мой субъективный взгляд, по большей мере спецификация это предписание для интерпретатора EcmaScript, держать такой же в  собственной голове есть дело тяжелое и неблагодарное.
 
-Чтобы не тратить драгоценное мыслетоплимо на разбор синтаксиса, как вариант, достаточно воспользоваться одним из существующих EcmaScript-парсеров, который поможет определить наличие идентификатора функции и каким способом она была задана.
+Чтобы не тратить драгоценное [мыслетопливо](https://habr.com/ru/company/oleg-bunin/blog/348714/) на разбор синтаксиса, как вариант, достаточно воспользоваться одним из существующих EcmaScript-парсеров, который поможет определить наличие идентификатора функции и каким способом она была задана.
 
 Например, [здесь](https://astexplorer.net/#/gist/aaebf64850c6f5997c3a976326843e23/bd064819c9e04d7776b441169390b6714840f738) представлено синтаксическое дерево, для ранее созданных тестов, с помощью инструмента [ASTExplorer](https://astexplorer.net).
 
