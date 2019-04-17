@@ -68,13 +68,13 @@ myFunc.name // "myFunc"
 
 ### Как задать функцию в JavaScript
 
-Function constructor:
+[Function constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_Function_constructor):
 
 ```
 `new Function ([arg1[, arg2[, ...argN]],] functionBody)`
 ```
 
-Function declaration:
+[Function declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_function_declaration_(function_statement)):
 
 ```
 function name([param[, param,[..., param]]]) {
@@ -82,7 +82,7 @@ function name([param[, param,[..., param]]]) {
 }
 ```
 
-Function expression:
+[Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_function_expression_(function_expression)):
 
 ```
 const myFunc = function [name]([param1[, param2[, ..., paramN]]]) {
@@ -90,14 +90,14 @@ const myFunc = function [name]([param1[, param2[, ..., paramN]]]) {
 }
 ```
 
-Arrow function:
+[Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 
 ```
 (param1, param2, …, paramN) => { statements } 
 (param1, param2, …, paramN) => expression
 ```
 
-Object Method:
+[Object Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions):
 
 ```
 const obj = {
@@ -106,7 +106,7 @@ const obj = {
 };
 ```
 
-К тому же не стоит забывать о существовании Generator Function и об специальном синтаксисе с использованием async, которые добавляют вариации в выше указанные способы определения функций.
+К тому же не стоит забывать о существовании [Generator Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_GeneratorFunction_constructor) и об специальном синтаксисе с использованием [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), плюс вспомним о [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get). Все это добавляет вариации в вышеуказанные способы определения функций.
 
 ![](./functions.gif)
 
@@ -133,7 +133,7 @@ function myFuncD() { };                               // 10
 (function myFuncF(){ })()                             // 12
 ```
 
-Теперь, используя описанные способы выше, возьмём у каждой функции свойство name, начнем с функций, заданных как function expression:
+Теперь, используя описанные способы выше, возьмём у каждой функции свойство **name**, и начнем с функций, заданных как [Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_function_expression_(function_expression)):
 
 ```
 myFunc.name                       // "myFunc"
@@ -142,7 +142,7 @@ myFuncB.name                      // "myFuncB"
 myFuncC.name                      // "myFuncC"
 ```
 
-Функции, объявленные как метод объекта:
+Функции, объявленные как [Object Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions):
 
 ```
 myObject.methodA.name             // "methodA"
@@ -164,17 +164,17 @@ myObject[property].name           // "[symbolProperty]"
 
 Вопросов возникает ещё больше. А может функция в опросе из twitter все таки именованная? Может я ввел вас в заблуждение? 
 
-### Спецификация
+### Спецификация. Хардкор
 
 Возможно кто-то считает, что когда-то трава была зеленее, небо голубее и вода мокрее, но в мире JavaScript раньше было определенно хуже! И только начиная со стандарта **[ECMA-262 6th Edition](https://www.ecma-international.org/ecma-262/6.0/)** появилась определенность в понятии анонимной функции, в частности в главе **[14 ECMAScript Language: Functions and Classes](https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-functions-and-classes)**, посвященной функциям и классам, в пункте **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)**:
 
 ```
 **14.1.9 Static Semantics: IsAnonymousFunctionDefinition( production )**
 
-1. If **IsFunctionDefinition** of production is false, return false.
-2. Let **hasName** be the result of **HasName** of production.
-3. If **hasName** is true, return false.
-4. Return true
+  1. If **IsFunctionDefinition** of production is false, return false.
+  2. Let **hasName** be the result of **HasName** of production.
+  3. If **hasName** is true, return false.
+  4. Return true
 ```
 
 Откуда получаем, что для полного понимания придется разобраться в семантике **[IsFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-isfunctiondefinition)**: 
@@ -193,7 +193,6 @@ myObject[property].name           // "[symbolProperty]"
 А также разобраться в семантике **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-function-definitions-static-semantics-hasname)**:
 
 ```
-
 **14.1 Function Definitions
 14.1.8 Static Semantics: HasName**
 
@@ -204,7 +203,7 @@ FunctionExpression:
      1. Return true.
 ```
 
-Семантика **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**:
+Из семантики **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**, следует, что стрелочные функции всегда анонимны:
 
 ```
 **14.2 Arrow Function Definitions
@@ -215,9 +214,40 @@ ArrowFunction:
     1. Return false.
 ```
 
-Собирая все воедино получаем, что если после **function** есть идентификатор, другими словами имя — функция именованная, во всех остальных случаях анонимная. Также замечу, что стрелочные функции всегда анонимны.
+С описанием метода объекта дела обстоят несколько сложнее, поскольку может использоваться старый синтаксис через *AssignmentExpression* или новый через *MethodDefinition*:
+
+```
+**12.2 Primary Expression**
+**12.2.6 Object Initializer**
+    ..
+    PropertyDefinition :
+      ..
+      PropertyName : AssignmentExpression
+      MethodDefinition
+```
+
+Также помним, что свойству объекта может быть присвоена в качестве значения функция, откуда получаем следующие вариации для метода:
+
+```
+const myObject = { 
+  myMethodA: function() {},         // 1
+  myMethodB() {}                    // 2
+};
+
+myObject.myMethodB = function() {}; // 3
+```
+
+В первом случаем, опосредованно используется **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)** для проверки, что описано в **[12.2.6.9 Runtime Semantics: PropertyDefinitionEvaluation](https://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer-runtime-semantics-propertydefinitionevaluation)**. Во втором же случае имеем то, что функция задается через **[FunctionCreate](https://www.ecma-international.org/ecma-262/6.0/#sec-functioncreate)** семантику внутри **[14.3.8 Runtime Semantics: DefineMethod](https://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-definemethod)** семантики.
+
+Не удивлюсь, если вы уже устали и запутаться, а ведь это далеко не все и я опустил часть перекрестных ссылок между разделами и пунктами спецификации. Лично мне в процессе подготовки статьи удалось запутаться дважды. 
+
+Что же стоит запомнить? Все случаи с описанием методов сводятся к Function Expression, где свойству объекта задается в качестве значения функция.
+
+Собирая все воедино, для себя выделил простое правило: если после **function** есть идентификатор, другими словами имя, тогда функция именованная, во всех остальных случаях анонимная.
 
 ### Возвращаемся к тестам и ставим точку.
+
+Весь этот путь был проделан не зря, теперь мы с полной уверенность и без капли сомнения сможем определить, когда функция именованная, когда нет:
 
 ```
 const myFunc  = function() { };                // 1 - анонимая 
@@ -237,51 +267,6 @@ const myObject = {
 function myFuncD() { };                        // 10 - именованная
 (function() { })()                             // 11 - анонимая
 (function myFuncF(){ })()                      // 12 - именованная
-```
-
-
-С пунктами теперь 1–4 и 10–12 все понятно, но в спецификации нет явного указания **hasName** для **Object Method**, как быть?
-
-Синтаксически блок кода ниже:
-
-```
-const property = Symbol('symbolProperty')
-const myObject = { 
-  methodA: function() { },                     // 5 - ?
-  methodB: function MyMethodB() {},            // 6 - ?
-  methodC: () => { },                          // 7 - ?
-  methodD(){ },                                // 8 - ?
-  [property](){ }                              // 9 - ?
-}
-```
-
-
-В каком-то смысле с некоторыми допущениями эквивалентен:
-
-```
-const myObject = {};
-const property = Symbol('symbolProperty');
-
-myObject.methodA = function() { };
-myObject.methodB = function MyMethodB() { };
-myObject.methodC = () => { };
-myObject.methodD = function methodD() { };
-
-// синтаксическое допущение:
-myObject[property] = function [property](){ };
-```
-
-Откуда мы получаем **Function Expression**, затем применяя правила выше получаем:
-
-```
-const property = Symbol('symbolProperty')
-const myObject = { 
-  methodA: function() { },                     // 5 - анонимая
-  methodB: function MyMethodB() {},            // 6 - именованная
-  methodC: () => { },                          // 7 - анонимая
-  methodD(){ },                                // 8 - именованная
-  [property](){ }                              // 9 - именованная
-}
 ```
 
 ### Стойте! А как же name?
@@ -304,7 +289,7 @@ The abstract operation SetFunctionName requires a Function argument F, a String 
   ..
 ```
 
-И собственно в описаниях классов, методов и функций используется эта абстрактная операция **[SetFunctionName](https://www.ecma-international.org/ecma-262/6.0/#sec-setfunctionname)**, которая описывает алгоритм как задается свойство **name**. Например, для функций созданных с помощью конструктора **[Function](https://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor)**, именем функции будет "anonymous":
+Например, для методов именем функции будет являться имя свойства, согласно **[14.3.8 Runtime Semantics: DefineMethod](https://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-definemethod)** и **[14.3.9 Runtime Semantics: PropertyDefinitionEvaluation](https://www.ecma-international.org/ecma-262/6.0/#sec-method-definitions-runtime-semantics-propertydefinitionevaluation)**, а для функций созданных с помощью конструктора **[Function](https://www.ecma-international.org/ecma-262/6.0/#sec-function-constructor)**, именем функции будет “anonymous”:
 
 ```
 **19.2.1.1.1 RuntimeSemantics: CreateDynamicFunction(constructor, newTarget, kind, args)**
@@ -336,10 +321,18 @@ console.log(
 ) // "get myProperty"
 ```
 
+### AST-ановитесь!
+
+На мой субъективный взгляд, по большей мере спецификация это предписание для интерпретатора EcmaScript, держать такой же в  собственной голове есть дело тяжелое и неблагодарное.
+
+Чтобы не тратить драгоценное [мыслетопливо](https://habr.com/ru/company/oleg-bunin/blog/348714/) на разбор синтаксиса, как вариант, достаточно воспользоваться одним из существующих EcmaScript-парсеров, который поможет определить наличие идентификатора функции и каким способом она была задана.
+
+Например, [здесь](https://astexplorer.net/#/gist/aaebf64850c6f5997c3a976326843e23/bd064819c9e04d7776b441169390b6714840f738) представлено абстрактное синтаксическое дерево, для ранее созданных тестов, с помощью инструмента [ASTExplorer](https://astexplorer.net).
+
 ### Вывод
 
-Как мы выяснили функция, будучи анонимной, может иметь имя, поскольку одновременно является и объектом, что есть следствие мультипарадигмальной природы языка JavaScript.
+Как мы выяснили функция, будучи анонимной, может иметь имя, поскольку одновременно является также и объектом, что есть следствие мультипарадигмальной природы языка JavaScript.
 
-В спорах о синтаксисе языка, обращайтесь к первоисточнику, то есть к спецификации EcmaScript актуальной версии, JavaScript — язык без магии.
+В спорах о синтаксисе языка, обращайтесь к первоисточнику, то есть к спецификации EcmaScript актуальной версии.
 
 Изучайте JavaScript! JavaScript — во имя добра!
