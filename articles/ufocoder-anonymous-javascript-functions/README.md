@@ -239,7 +239,7 @@ myObject.myMethodB = function() {}; // 3
 
 В первом случаем, опосредованно используется **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)** для проверки, что описано в **[12.2.6.9 Runtime Semantics: PropertyDefinitionEvaluation](https://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer-runtime-semantics-propertydefinitionevaluation)**. Во втором же случае имеем то, что функция задается через **[FunctionCreate](https://www.ecma-international.org/ecma-262/6.0/#sec-functioncreate)** семантику внутри **[14.3.8 Runtime Semantics: DefineMethod](https://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-definemethod)** семантики.
 
-Не удивлюсь, если вы уже устали и запутаться, а ведь это далеко не все и я опустил часть перекрестных ссылок между разделами и пунктами спецификации. Лично мне в процессе подготовки статьи удалось запутаться дважды. 
+Не удивлюсь, если вы уже устали и запутались, а ведь это далеко не все и я опустил часть перекрестных ссылок между разделами и пунктами спецификации. Лично мне в процессе подготовки статьи удалось запутаться дважды. 
 
 Что же стоит запомнить? Все случаи с описанием методов сводятся к Function Expression, где свойству объекта задается в качестве значения функция.
 
