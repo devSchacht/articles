@@ -11,7 +11,7 @@ JavaScript-разработчик, запомни! Если после **functio
 
 ### В интернете кто-то не прав
 
-Все началось с простого вопроса в канале Telegram для изучающих JavaScript, в котором помимо всего прочего появился  вопрос касательно обработчиков событий в браузере. Вопрос был в том, как они «навешиваются» и «снимаются» с DOM-элемента. Среди ответов от вполне опытного разработчика был следующий:
+Все началось с простого вопроса в канале Telegram для изучающих JavaScript, в котором, помимо всего прочего, появился  вопрос касательно обработчиков событий в браузере. Вопрос был в том, как они «навешиваются» и «снимаются» с DOM-элемента. Среди ответов от вполне опытного разработчика был следующий:
 
 > Обработчик снимается также, как он вешался. Если вешалась анонимная функция, то никак. Только удалять элемент из DOM и из памяти.
 
@@ -41,7 +41,7 @@ element.removeEventListener('click', handleClick)
 
 ![](./twitter.png)
 
-Учитывая возможные колебания в результатах из-за появившихся ответов в комментариях, статистика **практически 50/50**, это все равно, если бы мы подбрасывали бы монетку.
+Учитывая возможные колебания в результатах из-за появившихся ответов в комментариях, статистика **практически 50/50**, это все равно, если бы мы подбрасывали монетку.
 
 Также задавал этот вопрос в личной беседе опытным JavaScript-разработчикам, выступающим на митапах с докладами, и людям не из мира фронтенда, результат развед-допроса был сильно похож на статистику ответов в twitter.
 
@@ -49,7 +49,7 @@ element.removeEventListener('click', handleClick)
 
 Если на опрос выше вы ответили, что **функция myFunc является анонимной**, поздравляю—это правильно! Отметьте этот день красным цветом в календаре, позовите родных и близких, начинайте разливать шампанское по бокалам.
 
-И так, значит функция в коде блока выше является анонимной:
+Итак, значит функция в коде блока выше является анонимной:
 
 ```
 const myFunc = function() { };
@@ -106,7 +106,7 @@ const obj = {
 };
 ```
 
-К тому же не стоит забывать о существовании [Generator Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_GeneratorFunction_constructor) и об специальном синтаксисе с использованием [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), плюс вспомним о [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get). Все это добавляет вариации в вышеуказанные способы определения функций.
+К тому же, не стоит забывать о существовании [Generator Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#The_GeneratorFunction_constructor) и об специальном синтаксисе с использованием [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), плюс вспомним о [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get). Все это добавляет вариации в вышеуказанные способы определения функций.
 
 ![](./functions.gif)
 
@@ -203,7 +203,7 @@ FunctionExpression:
      1. Return true.
 ```
 
-Из семантики **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)**, следует, что стрелочные функции всегда анонимны:
+Из семантики **[hasName](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions-static-semantics-hasname)** для **[Arrow Function](https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions)** следует, что стрелочные функции всегда анонимны:
 
 ```
 **14.2 Arrow Function Definitions
@@ -237,7 +237,7 @@ const myObject = {
 myObject.myMethodB = function() {}; // 3
 ```
 
-В первом случаем, опосредованно используется **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)** для проверки, что описано в **[12.2.6.9 Runtime Semantics: PropertyDefinitionEvaluation](https://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer-runtime-semantics-propertydefinitionevaluation)**. Во втором же случае имеем то, что функция задается через **[FunctionCreate](https://www.ecma-international.org/ecma-262/6.0/#sec-functioncreate)** семантику внутри **[14.3.8 Runtime Semantics: DefineMethod](https://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-definemethod)** семантики.
+В первом случае, опосредованно используется **[14.1.9 IsAnonymousFunctionDefinition](https://www.ecma-international.org/ecma-262/6.0/#sec-isanonymousfunctiondefinition)** для проверки, что описано в **[12.2.6.9 Runtime Semantics: PropertyDefinitionEvaluation](https://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer-runtime-semantics-propertydefinitionevaluation)**. Во втором же случае имеем то, что функция задается через **[FunctionCreate](https://www.ecma-international.org/ecma-262/6.0/#sec-functioncreate)** семантику внутри **[14.3.8 Runtime Semantics: DefineMethod](https://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-definemethod)** семантики.
 
 Не удивлюсь, если вы уже устали и запутались, а ведь это далеко не все и я опустил часть перекрестных ссылок между разделами и пунктами спецификации. Лично мне в процессе подготовки статьи удалось запутаться дважды. 
 
@@ -247,7 +247,7 @@ myObject.myMethodB = function() {}; // 3
 
 ### Возвращаемся к тестам и ставим точку.
 
-Весь этот путь был проделан не зря, теперь мы с полной уверенность и без капли сомнения сможем определить, когда функция именованная, когда нет:
+Весь этот путь был проделан не зря, теперь мы с полной уверенностью и без капли сомнения сможем определить, когда функция именованная, когда нет:
 
 ```
 const myFunc  = function() { };                // 1 - анонимая 
