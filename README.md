@@ -9,4 +9,6 @@
 5. [Пишем приложение DevSchacht на React Native. Часть 2.](./articles/melikhov-create-devschacht-app-part-2)
 6. [Гонка за скоростью: ускоряем загрузку сайтов в эпоху смартфонов](./articles/melikhov-speeding-up-loading-in-the-era-of-smartphones)
 7. [Анонимные функции в JavaScript](./articles/ufocoder-anonymous-javascript-functions)
+8. [Анализ уязвимостей процесса аутентификации](./articles/bmsdave-auth-vulnerabilities)
+9. [Оптимизации и JavaScript](./articles/melikhov-optimizations-and-javascript)
 
