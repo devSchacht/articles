@@ -1,4 +1,4 @@
-# Оптимизации и JavaScript
+# Оптимизации производительности кода и JavaScript
 ![https://docs.google.com/presentation/d/1_eLlVzcj94_G4r9j9d_Lj5HRKFnq6jgpuPJtnmIBs88/edit#slide=id.p](./optimizations_killers.jpg)
 
 Недавно [в комментариях на Hexlet я поучаствовал в дискуссии](https://www.facebook.com/Hexlet/photos/a.191527631005918/1441750875983581/?type=1&theater) на тему «Что важнее — оптимизации производительности или качество кода?» Если вернуться чуть назад, то исходный вопрос звучал так — нужно ли использовать перебирающие методы массивов (т.е. Array.prototype.map(),  Array.prototype.filter(), Array.prototype.reduce() и т.д.) или стоит остановиться на старом добром цикле for...of ввиду его явного превосходства в производительности?
