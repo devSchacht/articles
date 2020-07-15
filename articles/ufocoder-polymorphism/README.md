@@ -690,6 +690,7 @@ if true:                   // выражение условия
     print('condition')     // тело условия
 
 len([1, 2, 3])             // получение длины списка
+toCode("a")                // получение значение ASCII-кода символа
 ```
 
 Теперь напишем алгоритм сортировки списка пузырьком на SPL:
@@ -713,9 +714,9 @@ fn swap<T>(list: List<T>, i: number, j: Number) -> List<T>:
 fn bubbleSort<T>(list: List<T>) -> List<T>:
   n = len(list)
   for i = 0 to n-1:
-    for j = 0 to n-i-1:
+    for j = 0 to n-i-2:
       if isGreater(list[j], list[j+1]):
-        list = swap(list, j, i)
+        list = swap(list, j, j + 1)
   return list
 
 bubbleSort([4, 3, 2])                  // [2, 3, 4]
