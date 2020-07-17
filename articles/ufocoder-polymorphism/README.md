@@ -249,7 +249,7 @@ sum(a: Number, b: Number) -> Number
 Сигнатуры функций между языками программирования могут отличаться. Например, для функции выше, но реализованной на TypeScript, сигнатура будет следующей:
 
 ```
-function sum(value: number, multiplier: number) : number;
+function sum(a: number, b: number) : number;
 ```
 
 Если бы функция была написана на языках похожих на Haskell или Elm, то мы бы получили следующую сигнатуру функции:
