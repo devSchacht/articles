@@ -249,7 +249,7 @@ sum(a: Number, b: Number) -> Number
 Сигнатуры функций между языками программирования могут отличаться. Например, для функции выше, но реализованной на TypeScript, сигнатура будет следующей:
 
 ```
-function sum(value: number, multiplier: number) : number;
+function sum(a: number, b: number) : number;
 ```
 
 Если бы функция была написана на языках похожих на Haskell или Elm, то мы бы получили следующую сигнатуру функции:
@@ -523,7 +523,7 @@ main =
   text (String.fromInt (multiply 5 5))
 ```
 
-В примере выше, даже нет Мы получим следующую ошибку:
+Мы получим следующую ошибку:
 
 ![](./elm-repl-overloading.png)
 
@@ -690,6 +690,7 @@ if true:                   // выражение условия
     print('condition')     // тело условия
 
 len([1, 2, 3])             // получение длины списка
+toCode("a")                // получение значение ASCII-кода символа
 ```
 
 Теперь напишем алгоритм сортировки списка пузырьком на SPL:
@@ -713,9 +714,9 @@ fn swap<T>(list: List<T>, i: number, j: Number) -> List<T>:
 fn bubbleSort<T>(list: List<T>) -> List<T>:
   n = len(list)
   for i = 0 to n-1:
-    for j = 0 to n-i-1:
+    for j = 0 to n-i-2:
       if isGreater(list[j], list[j+1]):
-        list = swap(list, j, i)
+        list = swap(list, j, j + 1)
   return list
 
 bubbleSort([4, 3, 2])                  // [2, 3, 4]
@@ -1052,7 +1053,7 @@ const obj2 = {
 const callMethod = obj => obj.myMethod()
 
 callMethod(obj1)
-callMethod(obj1)
+callMethod(obj2)
 ```
 
 В коде выше для функции *callMethod *объекты *obj1* и *obj2* — это объекты относящиеся к одному типу, поскольку обладают похожим поведением, имеют метод *myMethod*. Когда мы говорим, что функция *callMethod* полиморфна, то имеем в виду, что функция способна обрабатывать значения разных типов, но в текущей ситуации тип всего один.
