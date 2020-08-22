@@ -24,21 +24,21 @@ JavaScript сильнее?
 
 Однако сложно найти абсолютно сильный язык. Как правило даже в сильных язык может присутствовать незначительное количество неявных приведений, [например в C#](https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions):
 
-```
+```javascript
 using System;
 
 class CoercionExampleClass {
     public static void Main () {
-    float x = 10.5f;
-    int y = 20;
-    
-    Console.WriteLine ("x with type {0} is {1}", x.GetType(), x);
-    Console.WriteLine ("y with type {0} is {1}", y.GetType(), y);
+        float x = 10.5f;
+        int y = 20;
 
-    x = y; // неявное преобразования значения float в int
-    
-    Console.WriteLine ("x with type {0} is {1}", x.GetType(), x);
-    Console.WriteLine ("y with type {0} is {1}", y.GetType(), y);
+        Console.WriteLine ("x with type {0} is {1}", x.GetType(), x);
+        Console.WriteLine ("y with type {0} is {1}", y.GetType(), y);
+
+        x = y; // неявное преобразования значения float в int
+
+        Console.WriteLine ("x with type {0} is {1}", x.GetType(), x);
+        Console.WriteLine ("y with type {0} is {1}", y.GetType(), y);
     }
 }
 ```
@@ -47,7 +47,7 @@ class CoercionExampleClass {
 
 Возвращаясь к типизации, дополню, что также сложно найти абсолютно слабый язык, в слабых языках могут быть недопустимы некоторые преобразования между типами, например в JavaScript:
 
-```
+```javascript
 1n + true  // TypeError
            // Cannot mix BigInt and other types, 
            // use explicit conversions
@@ -67,7 +67,7 @@ JavaScript является слабо типизированным языком
 
 Когда в выражениях языка используются встроенные функции или операции с разными типами аргументов, JavaScript пытается привести аргументы к одному типу и произвести вычисления, например:
 
-```
+```javascript
 42 + " is answer"            // "42 is answer"
 40 + [2]                     // "402"
 1 / 0 + ""                   // "Infinity"
@@ -84,7 +84,7 @@ JavaScript является слабо типизированным языком
 
 В JavaScript можно приводить значения явно. Так для каждого типа данных, кроме null и undefined, существует одноименная функция, которая при вызове приведет аргумент к этому типу данных:
 
-```
+```javascript
 Number("0x42") + 34              // 100
 BigInt("42")                     // 42n
 Boolean(0)                       // false
@@ -335,7 +335,7 @@ Object.prototype[Symbol.toPrimitive] = () => {
 В качестве проверки мы можем явным образом попытаться преобразовать объекты
 через вызовы соответствующих функций:
 
-```
+```javascript
 Boolean({}) // true, результат абстрактного оператора 
 
 Number({})  // Uncaught TypeError: Coercion is disabled
@@ -359,12 +359,12 @@ Object({})  // {}
 
 Согласно спецификации оператор используется при вызове других абстрактных операторов, в частности при вызове абстрактного оператора сравнения и оператора проверки на равенство:
 
-```
-Абстрактный оператор сравнения
+```javascript
+// Абстрактный оператор сравнения
 
 "2n" > 1n   // "2n" будет приведено неявно к 2n
 
-Абстрактный оператор проверки на равенство
+// Абстрактный оператор проверки на равенство
 
 "3n" == 3n  // "3n" будет приведено неявно к 3n
 ```
@@ -402,16 +402,16 @@ The BigInt type has no implicit conversions in the ECMAScript language; programm
 На мой взгляд **формулировка не точная**, в цитате говорится, что неявных приведений нет, одновременно с тем, что мы можем найти неявные приведения типов в BigInt в таких выражениях как:
 
 
-```
+```javascript
 "1n" > 1n      // значение "1n" будет приведено в 1n типа BigInt 
 "2n" == 2n     // значение "2n" будет приведено в 2n типа BigInt
-true == 1n    //  значение true будет приведено в 1n типа BigInt
-false == 0n   // значение false будет приведено в 0n типа BigInt
+true == 1n     //  значение true будет приведено в 1n типа BigInt
+false == 0n    // значение false будет приведено в 0n типа BigInt
 ```
 
 Также там говорится, что разработчик должен явно приводить значения:
 
-```
+```javascript
 const a0 = BigInt(false)   // 0n
 const a1 = BigInt(true)    // 1n
 const a2 = BigInt('2')     // 2n
@@ -536,7 +536,7 @@ ECMAScript 2021. 7.1.17 [ToString](https://tc39.es/ecma262/#sec-tostring). Table
 
 Примеры неявного приведения [ToObject](https://tc39.es/ecma262/#sec-toobject):
 
-```
+```javascript
 Object.entries(1)        // []
 Object.entries(1n)       // []
 Object.values("2")       // ["2"]
