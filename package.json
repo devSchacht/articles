@@ -9,7 +9,7 @@
     "*.md": "yaspeller"
   },
   "dependencies": {
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^13.1.0",
     "pre-commit": "^1.2.2",
     "yaspeller": "^5.0.1"
   }
